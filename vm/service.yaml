@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: rhel9
+  name: rhel9-server-svc
   namespace: ocp-virt-app
 spec:
   ports:
