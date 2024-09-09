@@ -2,3 +2,4 @@ resources:
 - secret.yaml
 - rhel9-server.yaml
 - service.yaml
+- route.yaml
