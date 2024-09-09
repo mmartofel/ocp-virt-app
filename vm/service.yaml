@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
   - port: 22
-    targetPort: 22222
+    targetPort: 22
     protocol: TCP
   type: LoadBalancer
   selector:
