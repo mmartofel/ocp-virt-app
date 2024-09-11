@@ -1,4 +1,5 @@
 resources:
 - secret.yaml
 - rhel9-server.yaml
+- rhel8-server.yaml
 - service.yaml
