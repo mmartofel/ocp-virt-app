@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
-  name: rhel9-server
+  name: rhel-servers-playground
   namespace: openshift-gitops
 spec:
   destination:
