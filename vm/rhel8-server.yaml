@@ -64,9 +64,9 @@ spec:
                 bus: virtio
               name: cloudinitdisk
           interfaces:
-              masquerade: {}
-              model: virtio
-              name: default
+          - masquerade: {}
+            model: virtio
+            name: default
           rng: {}
         features:
           acpi: {}
