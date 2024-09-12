@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/connects-to: 'store'
+    app.openshift.io/connects-to: 'centos9-server'
     app.openshift.io/vcs-uri: 'https://github.com/mmartofel/kuberneter-probes.git'
   labels:
     app: probes
