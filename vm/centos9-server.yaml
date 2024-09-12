@@ -12,11 +12,11 @@ metadata:
           "min": 1610612736
         }
       ]
-  name: rhel9-server
+  name: centos9-server
   namespace: ocp-virt-app
   labels:
-    app: rhel9-server
-    vm.kubevirt.io/template: rhel9-server-small
+    app: centos9-server
+    vm.kubevirt.io/template: centos-stream9-server-small
     vm.kubevirt.io/template.namespace: openshift
     vm.kubevirt.io/template.revision: '1'
     vm.kubevirt.io/template.version: v0.29.2
@@ -26,11 +26,11 @@ spec:
       kind: DataVolume
       metadata:
         creationTimestamp: null
-        name: rhel9-server
+        name: centos9-server
       spec:
         sourceRef:
           kind: DataSource
-          name: rhel9
+          name: centos-stream9
           namespace: openshift-virtualization-os-images
         storage:
           resources:
@@ -41,11 +41,11 @@ spec:
     metadata:
       annotations:
         vm.kubevirt.io/flavor: small
-        vm.kubevirt.io/os: rhel9
+        vm.kubevirt.io/os: centos-stream9
         vm.kubevirt.io/workload: server
       creationTimestamp: null
       labels:
-        kubevirt.io/domain: rhel9-server
+        kubevirt.io/domain: centos9-server
         kubevirt.io/size: small
         network.kubevirt.io/headlessService: headless
     spec:
@@ -64,17 +64,10 @@ spec:
                 bus: virtio
               name: cloudinitdisk
           interfaces:
-          - masquerade: {}
-            model: virtio
-            name: default
+            - masquerade: {}
+              model: virtio
+              name: default
           rng: {}
-        features:
-          acpi: {}
-          smm:
-            enabled: true
-        firmware:
-          bootloader:
-            efi: {}
         machine:
           type: pc-q35-rhel9.4.0
         memory:
@@ -83,24 +76,24 @@ spec:
       networks:
         - name: default
           pod: {}
-      terminationGracePeriodSeconds: 30
+      terminationGracePeriodSeconds: 180
       volumes:
         - dataVolume:
-            name: rhel9-server
+            name: centos9-server
           name: rootdisk
         - cloudInitNoCloud:
             userData: |-
               #cloud-config
-              user: cloud-user
+              user: centos
               password: redhat
               chpasswd: { expire: False }
               packages:
-               - postgres16-server
+               - postgresql-server
+               - git
               runcmd:
-               - sudo dnf install https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y
-               - sudo dnf update -y
-               - sudo dnf install postgresql16-server -y
-               - sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
-               - sudo systemctl enable postgresql-16
-               - sudo systemctl start postgresql-16
+               - sudo /usr/bin/postgresql-setup initdb
+               - sudo systemctl enable postgresql
+               - sudo systemctl start postgresql
+               - git -C /home/centos clone https://github.com/mmartofel/ocp-virt-app
+               - sudo /home/centos/ocp-virt-app/db/setup.sh
           name: cloudinitdisk
