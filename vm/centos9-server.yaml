@@ -96,5 +96,5 @@ spec:
                - sudo systemctl start postgresql
                - git -C /tmp clone https://github.com/mmartofel/ocp-virt-app
                - sudo chown -R postgres:postgres /tmp/ocp-virt-app
-               - sudo -u postgres /home/centos/ocp-virt-app/db/setup.sh
+               - /tmp/ocp-virt-app/db/setup.sh
           name: cloudinitdisk
