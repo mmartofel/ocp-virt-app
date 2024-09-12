@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-postgres-centos9-server
+  namespace: ocp-virt-app
+spec:
+  ports:
+  - name: 5432-tpc
+    port: 5432
+    targetPort: 5432
+  type: ClusterIP
+  selector:
+    vm.kubevirt.io/name: centos9-server
+sessionAffinity: None

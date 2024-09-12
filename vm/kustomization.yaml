@@ -1,5 +1,7 @@
 resources:
 - secret.yaml
-- rhel9-server.yaml
-- rhel8-server.yaml
-- service.yaml
+- centos9-server.yaml
+- service-postgres-centos9-server.yaml
+# - rhel9-server.yaml
+# - rhel8-server.yaml
+# - service.yaml
