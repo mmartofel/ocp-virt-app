@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  name: quarkus-api
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: ocp-virt-app
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: api
+    repoURL: https://github.com/mmartofel/ocp-virt-app
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
