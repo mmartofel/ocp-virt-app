@@ -22,7 +22,7 @@ metadata:
     vm.kubevirt.io/template.version: v0.29.2
     app.kubernetes.io/instance: centos9-server
     app.kubernetes.io/part-of: QUARKUS_API_SERVICE
-    app.openshift.io/runtime: postgres
+    app.openshift.io/runtime: postgresql
 spec:
   dataVolumeTemplates:
     - apiVersion: cdi.kubevirt.io/v1beta1
