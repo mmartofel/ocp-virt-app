@@ -26,7 +26,7 @@ spec:
       containers:
         - name: frontend
           image: >-
-            quay.io/mmartofe/frontend:main
+            quay.io/mmartofe/frontend:latest
           ports:
             - containerPort: 4200
               protocol: TCP
