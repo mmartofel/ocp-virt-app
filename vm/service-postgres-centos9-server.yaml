@@ -11,4 +11,3 @@ spec:
   type: ClusterIP
   selector:
     vm.kubevirt.io/name: centos9-server
-sessionAffinity: None

@@ -20,4 +20,3 @@ spec:
   selector:
     deployment: probes
   type: ClusterIP
-  sessionAffinity: None    
