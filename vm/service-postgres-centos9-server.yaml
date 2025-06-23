@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: service-postgres-centos9-server
-  namespace: ocp-virt-app
+  # namespace: ocp-virt-app
 spec:
   ports:
   - name: 5432-tpc

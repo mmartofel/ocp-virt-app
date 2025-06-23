@@ -20,7 +20,7 @@ metadata:
     vm.kubevirt.io/template.revision: "1"
     vm.kubevirt.io/template.version: v0.26.0
   name: rhel9
-  namespace: ocp-virt-app
+  # namespace: ocp-virt-app
 spec:
   dataVolumeTemplates:
   - apiVersion: cdi.kubevirt.io/v1beta1

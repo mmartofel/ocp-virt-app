@@ -3,11 +3,11 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "6"
-  name: nodejs-frontend
+  name: nodejs-frontend-user01
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: ocp-virt-app
+    namespace: mix-user01
     server: https://kubernetes.default.svc
   project: default
   source:

@@ -13,7 +13,7 @@ metadata:
         }
       ]
   name: rhel8-server
-  namespace: ocp-virt-app
+  # namespace: ocp-virt-app
   labels:
     app: rhel8-server
     vm.kubevirt.io/template: rhel8-server-small
