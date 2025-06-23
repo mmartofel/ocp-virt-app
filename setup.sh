@@ -1,7 +1,7 @@
 
-oc delete application virtual-machines -n openshift-gitops
-oc delete application quarkus-api -n openshift-gitops
-oc delete application nodejs-frontend -n openshift-gitops
+oc delete application virtual-machines-user01 -n openshift-gitops
+oc delete application quarkus-api-user01 -n openshift-gitops
+oc delete application nodejs-frontend-user01 -n openshift-gitops
 
 oc create -f ./argocd/virtual-machines-app.yaml
 oc create -f ./argocd/quarkus-api-app.yaml
